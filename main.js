@@ -3,8 +3,11 @@ let computerScore = 0;
 const roundsToWin = 5;
 
 const choices = ["rock", "paper", "scissors"];
+const rock = document.querySelector("#rockBtn");
+const paper = document.querySelector("#paperBtn");
+const scissors = document.querySelector("#scissorsBtn");
 const playerDisplay = document.getElementById("playerScore");
-const computerDisplaye = document.getElementById("computerScore");
+const computerDisplay = document.getElementById("computerScore");
 const resultDisplay = document.getElementById("result");
 
 
@@ -12,8 +15,21 @@ function getComputerChoice() {
     const choice = choices[Math.floor(Math.random() * choices.length)];
     return choice;
 }
-function playGame(playerChoice){
-    const computerChoice = getComputerChoice();
+rock.addEventListener ("click", function() {
+    playGame("rock", getComputerChoice());
+});
+
+paper.addEventListener ("click", function() {
+    playGame("paper", getComputerChoice());
+});
+scissors.addEventListener ("click", function() {
+    playGame("scissors", getComputerChoice());
+});
+
+
+
+
+function playGame(playerChoice, computerChoice){
     let result = "";
     if (playerChoice === computerChoice) {
         result = "IT'S A TIE"
